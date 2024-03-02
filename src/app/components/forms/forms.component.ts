@@ -1,3 +1,4 @@
+import { FilterUnitsService } from './../../services/filter-units.service';
 import { UnitsResponse } from './../../types/units-response.interface';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -16,7 +17,8 @@ export class FormsComponent implements OnInit {
   formGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private unitService: GetUnitsService) {}
+    private unitService: GetUnitsService,
+    private filterService: FilterUnitsService) {}
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
@@ -30,12 +32,8 @@ export class FormsComponent implements OnInit {
   }
 
   onSubmit(): void{
-    console.log(this.formGroup.value)
-    if(!this.formGroup.value.showClosed){
-      this.filteredResults = this.results.filter(location => location.opened === true);
-    } else {
-      this.filteredResults = this.results;
-    }
+    let {showClosed, hour} = this.formGroup.value
+    this.filteredResults = this.filterService.filter(this.results, showClosed, hour)
   }
 
   onClean(): void{
