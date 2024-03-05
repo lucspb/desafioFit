@@ -4,12 +4,13 @@
     gap: 10px;
     justify-content: center;
     max-width: 90%;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
-.card-list .li {
+.card-list li {
     list-style: none;
 }
+
 
 @media (min-width: 768px) {
     .card-list {
