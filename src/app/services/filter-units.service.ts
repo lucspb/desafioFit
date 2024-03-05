@@ -64,7 +64,7 @@ export class FilterUnitsService {
   filter(results: Location[], showClosed: boolean, hour: string){
     let intermediateResults = results;
     
-    if(showClosed){
+    if(!showClosed){
       intermediateResults = results.filter(location => location.opened === true);
     }
     if(hour){
