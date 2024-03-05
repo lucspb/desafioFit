@@ -41,6 +41,7 @@
     justify-content: flex-start;
 
     padding: 8px 4px;
+    
 
     border-top: 1px solid var(--light-text);
     position: relative;
@@ -55,6 +56,10 @@
 .form-group .radio-wrapper span {
     position: absolute;
     right: 0;
+}
+
+.form-group .radio-wrapper label {
+    margin-left: 5px;
 }
 
 .form-group .btn-wrapper {
